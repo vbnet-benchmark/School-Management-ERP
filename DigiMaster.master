@@ -1,0 +1,392 @@
+﻿<%@ Master Language="VB" CodeFile="DigiMaster.master.vb" Inherits="Content_DigiMaster" %>
+
+<!DOCTYPE html class="no-js" lang="en">
+
+<html xmlns="https://www.w3.org/1999/xhtml">
+    <head id="Head1" runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- adminpro icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/adminpro-custon-icon.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/meanmenu.min.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- data-table CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/data-table/bootstrap-table.css">
+    <link rel="stylesheet" href="css/data-table/bootstrap-editable.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- charts C3 CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/c3.min.css">
+    <!-- forms CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/form/all-type-forms.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- modernizr JS
+		============================================ -->
+    <script  src="../js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+
+<body class="materialdesign">
+    <form id="form1" runat="server">
+         <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <!-- Header top area start-->
+    <div class="wrapper-pro">
+        <div class="left-sidebar-pro" style="height:0px;">
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <a href="#"><img id="imgProf" runat ="server"  src="img/message/1.jpg" alt="" />
+                    </a>
+                    <h3>Andrar Son</h3>
+                    <p>Developer</p>
+                    <strong>AP+</strong>
+                </div>
+                <div class="left-custom-menu-adp-wrap">
+                    <ul class="nav navbar-nav left-sidebar-menu-pro">
+                        <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+                       
+                       
+                        
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="content-inner-all">
+            <div class="header-top-area">
+                <div class="fixed-header-top">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-6 col-sm-6 col-xs-12">
+                                <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                               
+                            </div>
+                            <div class="col-lg-6 col-md-1 col-sm-1 col-xs-12">
+                                <div class="header-top-menu tabl-d-n">
+                                    <ul class="nav navbar-nav mai-top-nav">
+                                        <li class="nav-item"><a href="#" class="nav-link">Home</a>
+                                        </li>
+                                        <li class="nav-item"><a href="#" class="nav-link">About</a>
+                                        </li>
+                                        <li class="nav-item"><a href="#" class="nav-link">Services</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Project <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
+                                            <div role="menu" class="dropdown-menu animated flipInX">
+                                                <a href="#" class="dropdown-item">Company Info</a>
+                                                <a href="#" class="dropdown-item">Documentation</a>
+                                                <a href="#" class="dropdown-item">Expert Backend</a>
+                                                <a href="#" class="dropdown-item">Expert FrontEnd</a>
+                                                <a href="#" class="dropdown-item">Contact Support</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item"><a href="#" class="nav-link">Support</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                                <div class="header-right-info">
+                                    <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                        <li class="nav-item dropdown">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span class="adminpro-icon adminpro-chat-pro"></span>
+                                                <asp:PlaceHolder ID="PlaceHolder4" runat="server"></asp:PlaceHolder>
+                                            </a>
+                                            <div role="menu" class="author-message-top dropdown-menu animated flipInX">
+                                                <div class="message-single-top">
+                                                    <h1>You have <asp:Label ID="lblMsg" runat="server"></asp:Label></h1>
+                                                </div>
+                                                <ul class="message-menu">
+
+                                                    <asp:PlaceHolder ID="plcmsg" runat="server"></asp:PlaceHolder>
+                                                   
+                                                </ul>
+                                                <div class="message-view">
+                                                    <a href="#">View All Messages</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-bell-o" aria-hidden="true"></i>
+                                            <asp:PlaceHolder ID="PlaceHolder3" runat="server"></asp:PlaceHolder>
+                                        </a>
+                                            <div role="menu" class="author-message-top dropdown-menu animated flipInX">
+                                                <div class="message-single-top">
+                                                    <h1>You have <asp:Label ID="lblNot" runat="server"></asp:Label></h1>
+                                                </div>
+                                                <ul class="message-menu">
+                                                    <asp:PlaceHolder ID="plcNot" runat="server"></asp:PlaceHolder>
+                                                    
+                                                </ul>
+                                                <div class="notification-view">
+                                                    <a href="#">View All Notifications</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span class="adminpro-icon adminpro-user-rounded header-riht-inf"></span></a>
+                                            <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated flipInX">
+                                                
+                                                <li>
+                                                   <a href="#"><span class="adminpro-icon adminpro-user-rounded author-log-ic"></span>My Profile</a>
+                                                </li>
+                                               
+                                                <li><a href="#"> <asp:LinkButton ID="lnkLogOut" runat="server"><span class="adminpro-icon adminpro-locked author-log-ic"></span>Log Out</asp:LinkButton></a>
+                                                </li>
+                                               
+                                            </ul>
+                                           
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                                <i class="fa fa-tasks"></i>
+                                                <span class="admin-name">
+             <asp:Label ID="lblSession" runat="server"></asp:Label></span>
+                                                <span class="author-project-icon adminpro-icon adminpro-down-arrow"></span>
+                                            </a>
+                                            <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated flipInX">
+                                                <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+                                               
+                                            </ul>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header top area end-->
+            <!-- Breadcome start-->
+            <div class="breadcome-area mg-b-30 small-dn">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="breadcome-list map-mg-t-40-gl shadow-reset">
+                                <div class="row">
+                                    
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <ul class="breadcome-menu" style="text-align:left;">
+                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                            </li>
+                                            <li><span class="bread-blod">Dashboard</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Breadcome End-->
+            <!-- Mobile Menu start -->
+            <div class="mobile-menu-area" style="background:#1f2e86;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul>
+                                        <asp:PlaceHolder ID="plcMob" runat="server"></asp:PlaceHolder>
+                                       
+                                         
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu end -->
+            <!-- Breadcome start-->
+            <div class="breadcome-area des-none">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list map-mg-t-40-gl shadow-reset">
+                                <div class="row">
+                                   
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <ul class="breadcome-menu" style="text-align:left;">
+                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                            </li>
+                                            <li><span class="bread-blod">Dashboard</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Breadcome End-->
+            <!-- welcome Project, sale area start-->
+         
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+   
+            <!-- welcome Project, sale area start-->
+            <!-- stockprice, feed area start-->
+         
+            <!-- Data table area End-->
+        </div>
+    </div>
+    <!-- Footer Start-->
+    <div class="footer-copyright-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-copy-right">
+                        <p>Copyright &#169; 2018 Colorlib All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End-->
+    <!-- Chat Box Start-->
+    <div class="chat-list-wrap">
+        <div class="chat-list-adminpro">
+            <div class="chat-button">
+                <span data-toggle="collapse" data-target="#chat" class="chat-icon-link"><i class="fa fa-comments"></i></span>
+            </div>
+            <div id="chat" class="collapse chat-box-wrap shadow-reset animated zoomInLeft">
+                <div class="chat-main-list">
+                    <div class="chat-heading">
+                        <h2>Messanger</h2>
+                    </div>
+                    <div class="chat-content chat-scrollbar">
+                        <div class="author-chat">
+                            <h3>Monica <span class="chat-date">10:15 am</span></h3>
+                            <p>Hi, what you are doing and where are you gay?</p>
+                        </div>
+                        <div class="client-chat">
+                            <h3>Mamun <span class="chat-date">10:10 am</span></h3>
+                            <p>Now working in graphic design with coding and you?</p>
+                        </div>
+                        <div class="author-chat">
+                            <h3>Monica <span class="chat-date">10:05 am</span></h3>
+                            <p>Practice in programming</p>
+                        </div>
+                        <div class="client-chat">
+                            <h3>Mamun <span class="chat-date">10:02 am</span></h3>
+                            <p>That's good man! carry on...</p>
+                        </div>
+                    </div>
+                    <div class="chat-send">
+                        <input type="text" placeholder="Type..." />
+                        <span><button type="submit">Send</button></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Chat Box End-->
+    <!-- jquery
+		============================================ -->
+    <script src="../js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="../js/jquery.meanmenu.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="../js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="../js/jquery.scrollUp.min.js"></script>
+    <!-- counterup JS
+		============================================ -->
+    <script src="../js/counterup/jquery.counterup.min.js"></script>
+    <script src="../js/counterup/waypoints.min.js"></script>
+    <script src="../js/counterup/counterup-active.js"></script>
+    <!-- peity JS
+		============================================ -->
+    <script src="../js/peity/jquery.peity.min.js"></script>
+    <script src="../js/peity/peity-active.js"></script>
+    <!-- sparkline JS
+		============================================ -->
+    <script src="../js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="../js/sparkline/sparkline-active.js"></script>
+    <!-- flot JS
+		============================================ -->
+    <script src="../js/flot/jquery.flot.js"></script>
+    <script src="../js/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="../js/flot/jquery.flot.spline.js"></script>
+    <script src="../js/flot/jquery.flot.resize.js"></script>
+    <script src="../js/flot/jquery.flot.pie.js"></script>
+    <script src="../js/flot/Chart.min.js"></script>
+    <script src="../js/flot/flot-active.js"></script>
+    <!-- map JS
+		============================================ -->
+    <script src="../js/map/raphael.min.js"></script>
+    <script src="../js/map/jquery.mapael.js"></script>
+    <script src="../js/map/france_departments.js"></script>
+    <script src="../js/map/world_countries.js"></script>
+    <script src="../js/map/usa_states.js"></script>
+    <script src="../js/map/map-active.js"></script>
+    <!-- data table JS
+		============================================ -->
+    <script src="../js/data-table/bootstrap-table.js"></script>
+    <script src="../js/data-table/tableExport.js"></script>
+    <script src="../js/data-table/data-table-active.js"></script>
+    <script src="../js/data-table/bootstrap-table-editable.js"></script>
+    <script src="../js/data-table/bootstrap-editable.js"></script>
+    <script src="../js/data-table/bootstrap-table-resizable.js"></script>
+    <script src="../js/data-table/colResizable-1.5.source.js"></script>
+    <script src="../js/data-table/bootstrap-table-export.js"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="../js/main.js"></script>
+
+   
+
+    
+    </form>
+</body>
+</html>

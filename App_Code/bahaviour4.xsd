@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="bahaviour3" targetNamespace="http://tempuri.org/bahaviour3.xsd" xmlns:mstns="http://tempuri.org/bahaviour3.xsd" xmlns="http://tempuri.org/bahaviour3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="bahaviour3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="bahaviour3" msprop:Generator_UserDSName="bahaviour3">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Parameters4" msprop:Generator_TableClassName="Parameters4DataTable" msprop:Generator_TableVarName="tableParameters4" msprop:Generator_RowChangedName="Parameters4RowChanged" msprop:Generator_TablePropName="Parameters4" msprop:Generator_RowDeletingName="Parameters4RowDeleting" msprop:Generator_RowChangingName="Parameters4RowChanging" msprop:Generator_RowEvHandlerName="Parameters4RowChangeEventHandler" msprop:Generator_RowDeletedName="Parameters4RowDeleted" msprop:Generator_RowClassName="Parameters4Row" msprop:Generator_UserTableName="Parameters4" msprop:Generator_RowEvArgName="Parameters4RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="parameter" msprop:Generator_ColumnVarNameInTable="columnparameter" msprop:Generator_ColumnPropNameInRow="parameter" msprop:Generator_ColumnPropNameInTable="parameterColumn" msprop:Generator_UserColumnName="parameter" type="xs:string" minOccurs="0" />
+              <xs:element name="value" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnPropNameInTable="valueColumn" msprop:Generator_UserColumnName="value" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

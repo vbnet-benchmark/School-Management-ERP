@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="classdebtors" targetNamespace="http://tempuri.org/classdebtors.xsd" xmlns:mstns="http://tempuri.org/classdebtors.xsd" xmlns="http://tempuri.org/classdebtors.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="classdebtors" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="classdebtors" msprop:Generator_DataSetName="classdebtors">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="classdebtors" msprop:Generator_TableClassName="classdebtorsDataTable" msprop:Generator_TableVarName="tableclassdebtors" msprop:Generator_TablePropName="_classdebtors" msprop:Generator_RowDeletingName="classdebtorsRowDeleting" msprop:Generator_RowChangingName="classdebtorsRowChanging" msprop:Generator_RowEvHandlerName="classdebtorsRowChangeEventHandler" msprop:Generator_RowDeletedName="classdebtorsRowDeleted" msprop:Generator_UserTableName="classdebtors" msprop:Generator_RowChangedName="classdebtorsRowChanged" msprop:Generator_RowEvArgName="classdebtorsRowChangeEvent" msprop:Generator_RowClassName="classdebtorsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="class" msprop:Generator_ColumnVarNameInTable="columnclass" msprop:Generator_ColumnPropNameInRow="_class" msprop:Generator_ColumnPropNameInTable="classColumn" msprop:Generator_UserColumnName="class" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

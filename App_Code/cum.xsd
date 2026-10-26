@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="cum" targetNamespace="http://tempuri.org/cum.xsd" xmlns:mstns="http://tempuri.org/cum.xsd" xmlns="http://tempuri.org/cum.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="cum" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="cum" msprop:Generator_UserDSName="cum">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="subject" msprop:Generator_ColumnVarNameInTable="columnsubject" msprop:Generator_ColumnPropNameInRow="subject" msprop:Generator_ColumnPropNameInTable="subjectColumn" msprop:Generator_UserColumnName="subject" type="xs:string" minOccurs="0" />
+              <xs:element name="first" msprop:Generator_ColumnVarNameInTable="columnfirst" msprop:Generator_ColumnPropNameInRow="first" msprop:Generator_ColumnPropNameInTable="firstColumn" msprop:Generator_UserColumnName="first" type="xs:double" minOccurs="0" />
+              <xs:element name="second" msprop:Generator_ColumnVarNameInTable="columnsecond" msprop:Generator_ColumnPropNameInRow="second" msprop:Generator_ColumnPropNameInTable="secondColumn" msprop:Generator_UserColumnName="second" type="xs:double" minOccurs="0" />
+              <xs:element name="third" msprop:Generator_ColumnVarNameInTable="columnthird" msprop:Generator_ColumnPropNameInRow="third" msprop:Generator_ColumnPropNameInTable="thirdColumn" msprop:Generator_UserColumnName="third" type="xs:double" minOccurs="0" />
+              <xs:element name="cumaverage" msprop:Generator_ColumnVarNameInTable="columncumaverage" msprop:Generator_ColumnPropNameInRow="cumaverage" msprop:Generator_ColumnPropNameInTable="cumaverageColumn" msprop:Generator_UserColumnName="cumaverage" type="xs:double" minOccurs="0" />
+              <xs:element name="cumgrade" msprop:Generator_ColumnVarNameInTable="columncumgrade" msprop:Generator_ColumnPropNameInRow="cumgrade" msprop:Generator_ColumnPropNameInTable="cumgradeColumn" msprop:Generator_UserColumnName="cumgrade" type="xs:string" minOccurs="0" />
+              <xs:element name="cumremarks" msprop:Generator_ColumnVarNameInTable="columncumremarks" msprop:Generator_ColumnPropNameInRow="cumremarks" msprop:Generator_ColumnPropNameInTable="cumremarksColumn" msprop:Generator_UserColumnName="cumremarks" type="xs:string" minOccurs="0" />
+              <xs:element name="SID" msprop:Generator_ColumnVarNameInTable="columnSID" msprop:Generator_ColumnPropNameInRow="SID" msprop:Generator_ColumnPropNameInTable="SIDColumn" msprop:Generator_UserColumnName="SID" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

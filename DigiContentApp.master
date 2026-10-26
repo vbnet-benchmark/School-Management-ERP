@@ -1,0 +1,318 @@
+﻿<%@ Master Language="VB"  %>
+
+<!DOCTYPE html class="no-js" lang="en">
+
+<html xmlns="https://www.w3.org/1999/xhtml">
+    <head id="Head1" runat="server">
+    <title></title>
+      
+ <script type="text/javascript">
+     function ChangeCalendarView(sender, args) {
+         sender._switchMode("years", true);
+     }
+
+     function ProperCheckedDate(sender, args) {
+         if (sender._selectedDate < new Date()) {
+             alert("Day earler than today cannot be selected.");
+             sender._selectedDate = new Date();
+             // Date is set back to the current date
+             sender._textbox.set_Value(sender._selectedDate.format(sender._format))
+         }
+     }
+
+
+     function onCalendarShown() {
+
+         var cal = $find("calendar20");
+         //Setting the default mode to month
+         cal._switchMode("months", true);
+
+         //Iterate every month Item and attach click event to it
+         if (cal._monthsBody) {
+             for (var i = 0; i < cal._monthsBody.rows.length; i++) {
+                 var row = cal._monthsBody.rows[i];
+                 for (var j = 0; j < row.cells.length; j++) {
+                     Sys.UI.DomEvent.addHandler(row.cells[j].firstChild, "click", change);
+                 }
+             }
+         }
+     }
+
+
+
+     function onCalendarHidden() {
+         var cal = $find("calendar20");
+         //Iterate every month Item and remove click event from it
+         if (cal._monthsBody) {
+             for (var i = 0; i < cal._monthsBody.rows.length; i++) {
+                 var row = cal._monthsBody.rows[i];
+                 for (var j = 0; j < row.cells.length; j++) {
+                     Sys.UI.DomEvent.removeHandler(row.cells[j].firstChild, "click", change);
+                 }
+             }
+         }
+     }
+
+
+     function change(eventElement) {
+         var target = eventElement.target;
+         switch (target.mode) {
+             case "month":
+                 var cal = $find("calendar20");
+                 cal._visibleDate = target.date;
+                 cal.set_selectedDate(target.date);
+                 cal._switchMonth(target.date);
+                 cal._blur.post(true);
+                 cal.raiseDateSelectionChanged();
+                 break;
+         }
+     }
+
+     var down = false;
+     var scrollLeft = 0;
+     var x = 0;
+
+     $('#scr').mousedown(function (e) {
+         down = true;
+         scrollLeft = this.scrollLeft;
+         x = e.clientX;
+     }).mouseup(function () {
+         down = false;
+     }).mousemove(function (e) {
+         if (down) {
+             this.scrollLeft = scrollLeft + x - e.clientX;
+         }
+     }).mouseleave(function () {
+         down = false;
+     });
+</script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="content/App/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- adminpro icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/adminpro-custon-icon.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/meanmenu.min.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/animate.css">
+          <!-- notifications CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/Lobibox.min.css">
+    <link rel="stylesheet" href="css/notifications.css">
+    <!-- data-table CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/data-table/bootstrap-table.css">
+    <link rel="stylesheet" href="css/data-table/bootstrap-editable.css">
+    <!-- normalize CSS
+		============================================ -->
+
+         <link rel="stylesheet" href="css/datapicker/datepicker3.css">
+    <!-- forms CSS
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- charts C3 CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/c3.min.css">
+    <!-- forms CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/form/all-type-forms.css">
+         <!-- Preloader CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/preloader/preloader-style.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="appstyle.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- modernizr JS
+		============================================ -->
+    <script  src="../js/vendor/modernizr-2.8.3.min.js"></script>
+         <!-- summernote CSS
+		============================================ -->
+
+    <link rel="stylesheet" href="css/summernote.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- dropzone CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/dropzone.css">
+</head>
+
+
+<body class="materialdesign">
+    <form id="form1" runat="server">
+         <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <!-- Header top area start-->
+                              <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="1000"></asp:ScriptManager>
+    <asp:Timer ID="Timer1" runat="server"  enabled="false" Interval ="10000"></asp:Timer>
+    <div class="wrapper-pro">
+         
+        
+        <div class="content-inner-all">
+           
+            <!-- Header top area end-->
+            <!-- Breadcome start-->
+          
+            <!-- Breadcome End-->
+            <!-- Mobile Menu start -->
+           
+            
+            <!-- Mobile Menu end -->
+          
+            <!-- welcome Project, sale area start-->
+                  
+           
+  
+                               
+                                 <asp:ContentPlaceHolder id="ContentPlaceHolder1"  runat="server">
+        
+        </asp:ContentPlaceHolder>
+               
+              
+                      
+  
+     
+                
+         
+        <div id="alertx" style="position:fixed; bottom:80%; width:100%;">
+                 <asp:PlaceHolder ID="plcAlert" runat="server" >
+             
+                  
+             </asp:PlaceHolder></div>
+            
+            
+            <!-- welcome Project, sale area start-->
+            <!-- stockprice, feed area start-->
+         
+            <!-- Data table area End-->
+        </div>
+        
+        
+         
+    </div>
+    <!-- Footer Start-->
+              
+         
+    
+    <!-- Footer End-->
+    <!-- Chat Box Start-->
+   
+    <!-- Chat Box End-->
+    <!-- jquery
+		============================================ -->
+    <script src="../js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="../js/jquery.meanmenu.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="../../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="../js/jquery.sticky.js"></script>
+         <!-- datapicker JS
+		============================================ -->
+    <script src="../js/datapicker/bootstrap-datepicker.js"></script>
+    <script src="../js/datapicker/datepicker-active.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="../js/jquery.scrollUp.min.js"></script>
+    <!-- counterup JS
+		============================================ -->
+    <script src="../js/counterup/jquery.counterup.min.js"></script>
+    <script src="../js/counterup/waypoints.min.js"></script>
+    <script src="../js/counterup/counterup-active.js"></script>
+    <!-- peity JS
+		============================================ -->
+    <script src="../js/peity/jquery.peity.min.js"></script>
+    <script src="../js/peity/peity-active.js"></script>
+    <!-- sparkline JS
+		============================================ -->
+    <script src="../js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="../js/sparkline/sparkline-active.js"></script>
+    <!-- flot JS
+		============================================ -->
+    <script src="../js/flot/jquery.flot.js"></script>
+    <script src="../js/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="../js/flot/jquery.flot.spline.js"></script>
+    <script src="../js/flot/jquery.flot.resize.js"></script>
+    <script src="../js/flot/jquery.flot.pie.js"></script>
+    <script src="../js/flot/Chart.min.js"></script>
+    <script src="../js/flot/flot-active.js"></script>
+    <!-- map JS
+		============================================ -->
+    <script src="../js/map/raphael.min.js"></script>
+    <script src="../js/map/jquery.mapael.js"></script>
+    <script src="../js/map/france_departments.js"></script>
+    <script src="../js/map/world_countries.js"></script>
+    <script src="../js/map/usa_states.js"></script>
+    <script src="../js/map/map-active.js"></script>
+    <!-- data table JS
+		============================================ -->
+    <script src="../js/data-table/bootstrap-table.js"></script>
+    <script src="../js/data-table/tableExport.js"></script>
+    <script src="../js/data-table/data-table-active.js"></script>
+    <script src="../js/data-table/bootstrap-table-editable.js"></script>
+    <script src="../js/data-table/bootstrap-editable.js"></script>
+    <script src="../js/data-table/bootstrap-table-resizable.js"></script>
+    <script src="../js/data-table/colResizable-1.5.source.js"></script>
+    <script src="../js/data-table/bootstrap-table-export.js"></script>
+    <!-- main JS
+		============================================ -->
+        <!--  dropzone JS
+		============================================ -->
+    <script src="js/dropzone.js"></script>
+    <!-- multiple email JS
+		============================================ -->
+    <script src="js/multiple-email/multiple-email-active.js"></script>
+    <!-- summernote JS
+		============================================ -->
+    <script src="../js/summernote.min.js"></script>
+    <script src="../js/summernote-active.js"></script>
+
+         <asp:Literal id="summerLit" runat="server"></asp:Literal>
+    <!-- main JS
+		============================================ -->
+        <script src="../js/main.js"></script>
+    <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+    
+      
+
+
+    
+    </form>
+</body>
+    
+</html>

@@ -1,0 +1,61 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Main.master.vb" Inherits="StaffPortal.Main1" %>
+
+    <!DOCTYPE html ">
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <title></title>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+        <style type="text/css">
+            .style5
+            {
+                width: 176px;
+            }
+        .style6
+        {
+            width: 275px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div align="center">
+    <h1 align="center">PREMPEH COLLEGE</h1>
+    </div>
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+         <h3 align="center">Staff Portal system</h3>
+        </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+   
+        <div align="center" >
+        Staff ID: 
+        <asp:Label ID="lblStaffid" runat="server" Text="LBL" Font-Bold="True"></asp:Label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        Fullname:
+        <asp:Label ID="lblName" runat="server" Font-Bold="True" Text="LBL"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:LinkButton ID="LinkButton1" runat="server">Sign Out</asp:LinkButton>
+    </div>
+     </asp:ContentPlaceHolder>
+    <div align="center" 
+        style="font-size: large; background-color: #808080; height: 32px;">
+        <h2>Dashboard</h2>
+        
+        
+        <br />
+        
+    </div>
+
+    <br />
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

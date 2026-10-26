@@ -1,0 +1,1726 @@
+-- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
+--
+-- Host: localhost    Database: school-mgt-test
+-- ------------------------------------------------------
+-- Server version	5.5.25a
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `school-mgt-test`
+--
+
+/*!40000 DROP DATABASE IF EXISTS `school-mgt-test`*/;
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `school-mgt-test` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `school-mgt-test`;
+
+--
+-- Table structure for table `acclogin`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `acclogin` (
+  `username` varchar(100) DEFAULT NULL,
+  `password` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `acclogin`
+--
+
+/*!40000 ALTER TABLE `acclogin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `acclogin` ENABLE KEYS */;
+
+--
+-- Table structure for table `accounts`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `accounts` (
+  `username` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `accounts`
+--
+
+/*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
+
+--
+-- Table structure for table `accsettings`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `accsettings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `accname` varchar(255) DEFAULT NULL,
+  `type` varchar(25) DEFAULT NULL,
+  `initial` int(50) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `accsettings`
+--
+
+/*!40000 ALTER TABLE `accsettings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `accsettings` ENABLE KEYS */;
+
+--
+-- Table structure for table `admin`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admin` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `password` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin`
+--
+
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES (1,'demo1','demo1');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+
+--
+-- Table structure for table `assignments`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `assignments` (
+  `Id` int(11) NOT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `session` int(11) DEFAULT NULL,
+  `class` int(11) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `deadline` varchar(100) DEFAULT NULL,
+  `subject` int(11) DEFAULT NULL,
+  `assignment` text,
+  `teacher` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`Id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assignments`
+--
+
+/*!40000 ALTER TABLE `assignments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assignments` ENABLE KEYS */;
+
+--
+-- Table structure for table `attachments`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `attachments` (
+  `msgId` int(11) DEFAULT NULL,
+  `file` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `attachments`
+--
+
+/*!40000 ALTER TABLE `attachments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `attachments` ENABLE KEYS */;
+
+--
+-- Table structure for table `attendance`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `attendance` (
+  `week` int(11) DEFAULT NULL,
+  `student` varchar(25) DEFAULT NULL,
+  `term` int(11) DEFAULT NULL,
+  `date` varchar(50) NOT NULL,
+  `morning` tinyint(1) DEFAULT NULL,
+  `afternoon` tinyint(1) DEFAULT NULL,
+  `remarks` varchar(100) DEFAULT NULL,
+  `class` int(11) DEFAULT NULL,
+  `holiday` tinyint(4) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `attendance`
+--
+
+/*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
+/*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
+
+--
+-- Table structure for table `boarding`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `boarding` (
+  `cost` varchar(100) NOT NULL,
+  `account` varchar(100) NOT NULL,
+  `min` int(11) NOT NULL DEFAULT '100'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `boarding`
+--
+
+/*!40000 ALTER TABLE `boarding` DISABLE KEYS */;
+/*!40000 ALTER TABLE `boarding` ENABLE KEYS */;
+
+--
+-- Table structure for table `choicefees`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `choicefees` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fee` varchar(100) DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `min` int(11) NOT NULL DEFAULT '100',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `choicefees`
+--
+
+/*!40000 ALTER TABLE `choicefees` DISABLE KEYS */;
+/*!40000 ALTER TABLE `choicefees` ENABLE KEYS */;
+
+--
+-- Table structure for table `class`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `class` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Class` varchar(255) DEFAULT NULL,
+  `studentNo` varchar(255) DEFAULT NULL,
+  `superior` int(11) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `gradesystem` int(11) NOT NULL,
+  `cano` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `class`
+--
+
+/*!40000 ALTER TABLE `class` DISABLE KEYS */;
+/*!40000 ALTER TABLE `class` ENABLE KEYS */;
+
+--
+-- Table structure for table `classfees`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `classfees` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `class` int(11) NOT NULL DEFAULT '0',
+  `fee` varchar(30) DEFAULT NULL,
+  `amount` varchar(20) DEFAULT NULL,
+  `min` int(11) NOT NULL DEFAULT '100',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `classfees`
+--
+
+/*!40000 ALTER TABLE `classfees` DISABLE KEYS */;
+/*!40000 ALTER TABLE `classfees` ENABLE KEYS */;
+
+--
+-- Table structure for table `classlevel`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `classlevel` (
+  `ID` int(11) NOT NULL,
+  `level` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `classlevel`
+--
+
+/*!40000 ALTER TABLE `classlevel` DISABLE KEYS */;
+/*!40000 ALTER TABLE `classlevel` ENABLE KEYS */;
+
+--
+-- Table structure for table `classstats`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `classstats` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Session` int(11) DEFAULT NULL,
+  `Class` int(11) DEFAULT NULL,
+  `Parameter` varchar(255) DEFAULT NULL,
+  `Number` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`) USING BTREE,
+  KEY `FK_classstats_session` (`Session`),
+  KEY `FK_classstats_class` (`Class`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `classstats`
+--
+
+/*!40000 ALTER TABLE `classstats` DISABLE KEYS */;
+/*!40000 ALTER TABLE `classstats` ENABLE KEYS */;
+
+--
+-- Table structure for table `classsubjects`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `classsubjects` (
+  `Class` int(11) DEFAULT NULL,
+  `Subject` int(11) DEFAULT NULL,
+  `periods` int(11) NOT NULL,
+  `Type` varchar(255) DEFAULT NULL,
+  `teacher` varchar(25) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sgroup` int(11) NOT NULL,
+  `cgroup` int(11) NOT NULL,
+  `doubles` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=240 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `classsubjects`
+--
+
+/*!40000 ALTER TABLE `classsubjects` DISABLE KEYS */;
+/*!40000 ALTER TABLE `classsubjects` ENABLE KEYS */;
+
+--
+-- Table structure for table `classteacher`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `classteacher` (
+  `teacher` varchar(25) DEFAULT NULL,
+  `class` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `classteacher`
+--
+
+/*!40000 ALTER TABLE `classteacher` DISABLE KEYS */;
+/*!40000 ALTER TABLE `classteacher` ENABLE KEYS */;
+
+--
+-- Table structure for table `courseoutline`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `courseoutline` (
+  `subject` int(11) DEFAULT NULL,
+  `session` int(11) DEFAULT NULL,
+  `class` int(11) DEFAULT NULL,
+  `week` int(11) DEFAULT NULL,
+  `topic` text,
+  `content` text,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseoutline`
+--
+
+/*!40000 ALTER TABLE `courseoutline` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseoutline` ENABLE KEYS */;
+
+--
+-- Table structure for table `courseoverview`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `courseoverview` (
+  `subject` int(11) DEFAULT NULL,
+  `session` int(11) DEFAULT NULL,
+  `class` int(11) DEFAULT NULL,
+  `overview` text,
+  `texts` varchar(255) NOT NULL,
+  `classub` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseoverview`
+--
+
+/*!40000 ALTER TABLE `courseoverview` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseoverview` ENABLE KEYS */;
+
+--
+-- Table structure for table `depts`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `depts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dept` varchar(100) DEFAULT NULL,
+  `head` varchar(25) NOT NULL,
+  `superior` varchar(100) NOT NULL,
+  `headtitle` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `depts`
+--
+
+/*!40000 ALTER TABLE `depts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `depts` ENABLE KEYS */;
+
+--
+-- Table structure for table `discount`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `discount` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `student` varchar(25) DEFAULT NULL,
+  `fee` varchar(100) DEFAULT NULL,
+  `type` varchar(25) DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `discount`
+--
+
+/*!40000 ALTER TABLE `discount` DISABLE KEYS */;
+/*!40000 ALTER TABLE `discount` ENABLE KEYS */;
+
+--
+-- Table structure for table `elearning`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `elearning` (
+  `session` int(11) DEFAULT NULL,
+  `subject` int(11) DEFAULT NULL,
+  `class` int(11) DEFAULT NULL,
+  `file` varchar(255) NOT NULL,
+  `date` datetime DEFAULT NULL,
+  `id` int(11) DEFAULT NULL,
+  `teacher` varchar(100) DEFAULT NULL,
+  `type` varchar(100) NOT NULL,
+  `title` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `elearning`
+--
+
+/*!40000 ALTER TABLE `elearning` DISABLE KEYS */;
+/*!40000 ALTER TABLE `elearning` ENABLE KEYS */;
+
+--
+-- Table structure for table `error`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `error` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `time` datetime DEFAULT NULL,
+  `object` varchar(100) DEFAULT NULL,
+  `message` text,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `error`
+--
+
+/*!40000 ALTER TABLE `error` DISABLE KEYS */;
+/*!40000 ALTER TABLE `error` ENABLE KEYS */;
+
+--
+-- Table structure for table `expense`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `expense` (
+  `ref` varchar(10) NOT NULL,
+  `type` varchar(25) DEFAULT NULL,
+  `amount` varchar(20) DEFAULT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  `date` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`ref`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `expense`
+--
+
+/*!40000 ALTER TABLE `expense` DISABLE KEYS */;
+/*!40000 ALTER TABLE `expense` ENABLE KEYS */;
+
+--
+-- Table structure for table `feeding`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `feeding` (
+  `cost` varchar(25) NOT NULL,
+  `account` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `feeding`
+--
+
+/*!40000 ALTER TABLE `feeding` DISABLE KEYS */;
+/*!40000 ALTER TABLE `feeding` ENABLE KEYS */;
+
+--
+-- Table structure for table `feeschedule`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `feeschedule` (
+  `session` int(11) DEFAULT NULL,
+  `fee` varchar(100) DEFAULT NULL,
+  `amount` int(20) DEFAULT NULL,
+  `student` varchar(25) DEFAULT NULL,
+  `class` int(11) DEFAULT NULL,
+  `compulsory` tinyint(4) NOT NULL,
+  `paid` int(20) NOT NULL DEFAULT '0',
+  `min` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `feeschedule`
+--
+
+/*!40000 ALTER TABLE `feeschedule` DISABLE KEYS */;
+/*!40000 ALTER TABLE `feeschedule` ENABLE KEYS */;
+
+--
+-- Table structure for table `grades`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `grades` (
+  `system` int(11) DEFAULT NULL,
+  `lowest` int(11) DEFAULT NULL,
+  `grade` varchar(10) DEFAULT NULL,
+  `subject` varchar(100) DEFAULT NULL,
+  `average` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `grades`
+--
+
+/*!40000 ALTER TABLE `grades` DISABLE KEYS */;
+/*!40000 ALTER TABLE `grades` ENABLE KEYS */;
+
+--
+-- Table structure for table `gradingsystem`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gradingsystem` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `system` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gradingsystem`
+--
+
+/*!40000 ALTER TABLE `gradingsystem` DISABLE KEYS */;
+/*!40000 ALTER TABLE `gradingsystem` ENABLE KEYS */;
+
+--
+-- Table structure for table `hostel`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `hostel` (
+  `hostel` varchar(100) DEFAULT NULL,
+  `ward` varchar(25) DEFAULT NULL,
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`Id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hostel`
+--
+
+/*!40000 ALTER TABLE `hostel` DISABLE KEYS */;
+/*!40000 ALTER TABLE `hostel` ENABLE KEYS */;
+
+--
+-- Table structure for table `income`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `income` (
+  `ref` varchar(10) NOT NULL DEFAULT '',
+  `type` varchar(25) DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  `date` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`ref`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `income`
+--
+
+/*!40000 ALTER TABLE `income` DISABLE KEYS */;
+/*!40000 ALTER TABLE `income` ENABLE KEYS */;
+
+--
+-- Table structure for table `lessonplan`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `lessonplan` (
+  `id` varchar(25) DEFAULT NULL,
+  `teacher` varchar(25) DEFAULT NULL,
+  `head` varchar(25) DEFAULT NULL,
+  `subject` int(11) DEFAULT NULL,
+  `class` int(11) DEFAULT NULL,
+  `week` varchar(25) DEFAULT NULL,
+  `plan` text,
+  `date` datetime DEFAULT NULL,
+  `session` int(11) DEFAULT NULL,
+  `status` varchar(25) NOT NULL DEFAULT 'Unmarked',
+  `remarks` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lessonplan`
+--
+
+/*!40000 ALTER TABLE `lessonplan` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lessonplan` ENABLE KEYS */;
+
+--
+-- Table structure for table `log`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `time` datetime DEFAULT NULL,
+  `activity` text,
+  `user` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `log`
+--
+
+/*!40000 ALTER TABLE `log` DISABLE KEYS */;
+INSERT INTO `log` VALUES (2,'2019-03-05 16:57:03','A new session was created',''),(3,'2019-03-05 17:04:42','A new session was created',''),(4,'2019-03-05 17:15:16','A new session was created','');
+/*!40000 ALTER TABLE `log` ENABLE KEYS */;
+
+--
+-- Table structure for table `messages`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `messages` (
+  `Id` int(11) NOT NULL,
+  `sender` varchar(25) DEFAULT NULL,
+  `receiver` varchar(25) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `message` longtext,
+  `date` datetime DEFAULT NULL,
+  `session` varchar(10) DEFAULT NULL,
+  `sendertype` varchar(100) DEFAULT NULL,
+  `receivertype` varchar(100) DEFAULT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'Unread'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `messages`
+--
+
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+
+--
+-- Table structure for table `notifications`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notifications` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `recipient` varchar(59) DEFAULT NULL,
+  `msg` text,
+  `status` varchar(10) NOT NULL DEFAULT 'Unread',
+  `origin` varchar(59) DEFAULT NULL,
+  `type` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`ID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notifications`
+--
+
+/*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
+INSERT INTO `notifications` VALUES (1,'45464664','You are now a Staff.','Unread',NULL,NULL),(2,'45464664','Your profile has been updated by admin.','Unread',NULL,NULL),(3,'45464664','Your profile has been updated by admin.','Unread',NULL,NULL),(4,'64664664b','You are now a Staff.','Unread',NULL,NULL),(5,'64664664b','Your passport has been updated by admin.','Unread',NULL,NULL),(6,'64664664b','Your passport has been updated by admin.','Unread',NULL,NULL),(7,'64664664b','Your passport has been updated by admin.','Unread',NULL,NULL),(8,'45464664','Your passport has been updated by admin.','Unread',NULL,NULL),(9,'45464664','Your passport has been updated by admin.','Unread',NULL,NULL);
+/*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
+
+--
+-- Table structure for table `onetimefees`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `onetimefees` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `fee` varchar(25) DEFAULT NULL,
+  `amount` varchar(25) DEFAULT NULL,
+  `min` int(11) NOT NULL DEFAULT '100',
+  `account` varchar(100) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `onetimefees`
+--
+
+/*!40000 ALTER TABLE `onetimefees` DISABLE KEYS */;
+/*!40000 ALTER TABLE `onetimefees` ENABLE KEYS */;
+
+--
+-- Table structure for table `optionalfees`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `optionalfees` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `fee` varchar(25) DEFAULT NULL,
+  `amount` varchar(25) DEFAULT NULL,
+  `min` int(11) NOT NULL DEFAULT '100',
+  `account` varchar(100) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `optionalfees`
+--
+
+/*!40000 ALTER TABLE `optionalfees` DISABLE KEYS */;
+/*!40000 ALTER TABLE `optionalfees` ENABLE KEYS */;
+
+--
+-- Table structure for table `options`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `options` (
+  `boarding` tinyint(1) NOT NULL DEFAULT '1',
+  `transport` tinyint(1) NOT NULL DEFAULT '1',
+  `fees` varchar(100) DEFAULT 'automatic',
+  `email` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `port` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `options`
+--
+
+/*!40000 ALTER TABLE `options` DISABLE KEYS */;
+/*!40000 ALTER TABLE `options` ENABLE KEYS */;
+
+--
+-- Table structure for table `parentprofile`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parentprofile` (
+  `parentID` varchar(25) NOT NULL DEFAULT 'password',
+  `parentName` varchar(100) DEFAULT NULL,
+  `sex` varchar(10) DEFAULT NULL,
+  `address` text,
+  `email` varchar(30) DEFAULT NULL,
+  `phone` varchar(19) DEFAULT NULL,
+  `passport` varchar(100) DEFAULT NULL,
+  `password` varchar(20) NOT NULL DEFAULT 'password',
+  `activated` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parentprofile`
+--
+
+/*!40000 ALTER TABLE `parentprofile` DISABLE KEYS */;
+/*!40000 ALTER TABLE `parentprofile` ENABLE KEYS */;
+
+--
+-- Table structure for table `parentward`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parentward` (
+  `parent` varchar(25) DEFAULT NULL,
+  `ward` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parentward`
+--
+
+/*!40000 ALTER TABLE `parentward` DISABLE KEYS */;
+/*!40000 ALTER TABLE `parentward` ENABLE KEYS */;
+
+--
+-- Table structure for table `pin`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pin` (
+  `ID` int(20) NOT NULL AUTO_INCREMENT,
+  `admno` varchar(25) NOT NULL,
+  `pin` int(11) DEFAULT NULL,
+  `dateissued` varchar(255) DEFAULT NULL,
+  `expiry` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pin`
+--
+
+/*!40000 ALTER TABLE `pin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pin` ENABLE KEYS */;
+
+--
+-- Table structure for table `salschedule`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `salschedule` (
+  `ref` varchar(20) NOT NULL,
+  `Date` date NOT NULL,
+  `Month` varchar(10) NOT NULL,
+  `year` varchar(255) NOT NULL,
+  `staffId` varchar(25) NOT NULL,
+  `amount` int(20) NOT NULL,
+  `tax` int(11) NOT NULL,
+  `pension` int(11) NOT NULL,
+  `bills` int(11) NOT NULL,
+  `deductions` int(11) NOT NULL,
+  `increments` int(11) NOT NULL,
+  `net` int(11) NOT NULL,
+  `status` tinyint(4) DEFAULT '0',
+  `welfare` int(11) NOT NULL,
+  `others` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ref`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `salschedule`
+--
+
+/*!40000 ALTER TABLE `salschedule` DISABLE KEYS */;
+/*!40000 ALTER TABLE `salschedule` ENABLE KEYS */;
+
+--
+-- Table structure for table `scorespublish`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `scorespublish` (
+  `term` int(11) DEFAULT NULL,
+  `CA1` tinyint(1) NOT NULL DEFAULT '0',
+  `CA2` tinyint(1) NOT NULL DEFAULT '0',
+  `CA3` tinyint(1) NOT NULL DEFAULT '0',
+  `Project` tinyint(1) NOT NULL DEFAULT '0',
+  `Exams` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `scorespublish`
+--
+
+/*!40000 ALTER TABLE `scorespublish` DISABLE KEYS */;
+/*!40000 ALTER TABLE `scorespublish` ENABLE KEYS */;
+
+--
+-- Table structure for table `sentmsgs`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sentmsgs` (
+  `id` int(11) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `sender` varchar(50) DEFAULT NULL,
+  `sendertype` varchar(50) DEFAULT NULL,
+  `subject` varchar(100) DEFAULT NULL,
+  `receiver` varchar(100) DEFAULT NULL,
+  `message` text,
+  `session` int(11) DEFAULT NULL,
+  `receivertype` varchar(50) DEFAULT NULL,
+  `receiverreply` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sentmsgs`
+--
+
+/*!40000 ALTER TABLE `sentmsgs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sentmsgs` ENABLE KEYS */;
+
+--
+-- Table structure for table `session`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `session` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Session` varchar(255) DEFAULT NULL,
+  `Term` varchar(255) DEFAULT NULL,
+  `TotalNoTerms` int(11) DEFAULT NULL,
+  `NextTerm` varchar(255) DEFAULT NULL,
+  `ClosingDate` varchar(255) DEFAULT NULL,
+  `Status` varchar(255) DEFAULT NULL,
+  `opendate` varchar(255) DEFAULT NULL,
+  `smsno` double NOT NULL,
+  PRIMARY KEY (`ID`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `session`
+--
+
+/*!40000 ALTER TABLE `session` DISABLE KEYS */;
+/*!40000 ALTER TABLE `session` ENABLE KEYS */;
+
+--
+-- Table structure for table `sessionalfees`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sessionalfees` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `fee` varchar(25) DEFAULT NULL,
+  `amount` varchar(25) DEFAULT NULL,
+  `min` int(11) NOT NULL DEFAULT '100',
+  `account` varchar(100) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sessionalfees`
+--
+
+/*!40000 ALTER TABLE `sessionalfees` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sessionalfees` ENABLE KEYS */;
+
+--
+-- Table structure for table `sessioncreate`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sessioncreate` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `sessionname` varchar(20) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sessioncreate`
+--
+
+/*!40000 ALTER TABLE `sessioncreate` DISABLE KEYS */;
+INSERT INTO `sessioncreate` VALUES (20,'2019/2020'),(21,'2020/2021'),(22,'2019/2021');
+/*!40000 ALTER TABLE `sessioncreate` ENABLE KEYS */;
+
+--
+-- Table structure for table `staffdept`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `staffdept` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `staff` varchar(100) DEFAULT NULL,
+  `dept` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `staffdept`
+--
+
+/*!40000 ALTER TABLE `staffdept` DISABLE KEYS */;
+/*!40000 ALTER TABLE `staffdept` ENABLE KEYS */;
+
+--
+-- Table structure for table `staffprofile`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `staffprofile` (
+  `staffId` varchar(25) NOT NULL,
+  `surname` varchar(100) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `sex` varchar(10) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `dob` varchar(50) NOT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `email` varchar(30) NOT NULL,
+  `passport` varchar(100) DEFAULT NULL,
+  `Designation` varchar(255) NOT NULL,
+  `salary` varchar(50) DEFAULT NULL,
+  `activated` tinyint(1) NOT NULL DEFAULT '1',
+  `pension` tinyint(1) NOT NULL DEFAULT '0',
+  `accountno` bigint(200) DEFAULT NULL,
+  `bank` varchar(50) DEFAULT NULL,
+  `pfa` varchar(25) NOT NULL,
+  PRIMARY KEY (`staffId`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `staffprofile`
+--
+
+/*!40000 ALTER TABLE `staffprofile` DISABLE KEYS */;
+/*!40000 ALTER TABLE `staffprofile` ENABLE KEYS */;
+
+--
+-- Table structure for table `studentfees`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `studentfees` (
+  `student` varchar(25) NOT NULL,
+  `session` int(11) DEFAULT NULL,
+  `fee` varchar(25) DEFAULT NULL,
+  `amount` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `studentfees`
+--
+
+/*!40000 ALTER TABLE `studentfees` DISABLE KEYS */;
+/*!40000 ALTER TABLE `studentfees` ENABLE KEYS */;
+
+--
+-- Table structure for table `studentsprofile`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `studentsprofile` (
+  `admno` varchar(25) NOT NULL,
+  `surname` varchar(255) DEFAULT NULL,
+  `Sex` varchar(255) DEFAULT NULL,
+  `dateOfBirth` varchar(25) DEFAULT NULL,
+  `parent` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `phone` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `passport` varchar(100) DEFAULT NULL,
+  `admfees` varchar(25) NOT NULL DEFAULT 'Not Paid',
+  `discount` int(11) NOT NULL DEFAULT '0',
+  `hostel` varchar(100) NOT NULL,
+  `transport` varchar(100) NOT NULL,
+  `hostelstay` tinyint(1) NOT NULL DEFAULT '0',
+  `password` varchar(25) NOT NULL DEFAULT 'password',
+  `activated` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`admno`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `studentsprofile`
+--
+
+/*!40000 ALTER TABLE `studentsprofile` DISABLE KEYS */;
+/*!40000 ALTER TABLE `studentsprofile` ENABLE KEYS */;
+
+--
+-- Table structure for table `studentsummary`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `studentsummary` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Session` int(11) DEFAULT NULL,
+  `Class` int(11) DEFAULT NULL,
+  `student` varchar(25) DEFAULT NULL,
+  `Age` int(11) DEFAULT NULL,
+  `Average` double NOT NULL,
+  `Position` varchar(255) NOT NULL,
+  `classTeacherRemarks` varchar(255) DEFAULT NULL,
+  `principalRemarks` varchar(243) NOT NULL,
+  `handWriting` varchar(255) NOT NULL,
+  `fluency` varchar(255) NOT NULL,
+  `games` varchar(255) NOT NULL,
+  `sports` varchar(255) NOT NULL,
+  `gymnastics` varchar(255) NOT NULL,
+  `tools` varchar(255) NOT NULL,
+  `drawing` varchar(255) NOT NULL,
+  `crafts` varchar(255) NOT NULL,
+  `Present` varchar(255) NOT NULL,
+  `Absent` varchar(255) NOT NULL,
+  `ClassNo` varchar(255) NOT NULL,
+  `aveage` int(11) NOT NULL,
+  `musical` varchar(10) NOT NULL,
+  `punctual` varchar(10) NOT NULL,
+  `attendance` varchar(10) NOT NULL,
+  `reliability` varchar(10) NOT NULL,
+  `neatness` varchar(10) NOT NULL,
+  `polite` varchar(10) NOT NULL,
+  `honesty` varchar(10) NOT NULL,
+  `relate` varchar(10) NOT NULL,
+  `selfcontrol` varchar(10) NOT NULL,
+  `cooperation` varchar(10) NOT NULL,
+  `responsibility` varchar(10) NOT NULL,
+  `attentiveness` varchar(10) NOT NULL,
+  `initiative` varchar(10) NOT NULL,
+  `organization` varchar(10) NOT NULL,
+  `perseverance` varchar(10) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `trans` varchar(50) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=34622 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `studentsummary`
+--
+
+/*!40000 ALTER TABLE `studentsummary` DISABLE KEYS */;
+/*!40000 ALTER TABLE `studentsummary` ENABLE KEYS */;
+
+--
+-- Table structure for table `subjectallocate`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subjectallocate` (
+  `class` int(11) DEFAULT NULL,
+  `subject` int(11) DEFAULT NULL,
+  `periods` int(11) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subjectallocate`
+--
+
+/*!40000 ALTER TABLE `subjectallocate` DISABLE KEYS */;
+/*!40000 ALTER TABLE `subjectallocate` ENABLE KEYS */;
+
+--
+-- Table structure for table `subjectreg`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subjectreg` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Session` int(11) DEFAULT NULL,
+  `Class` int(11) DEFAULT NULL,
+  `Student` varchar(25) DEFAULT NULL,
+  `SubjectsOfferred` int(11) DEFAULT NULL,
+  `CA1` varchar(11) NOT NULL,
+  `CA2` varchar(11) NOT NULL,
+  `CA3` varchar(11) NOT NULL,
+  `Examination` varchar(11) NOT NULL,
+  `Total` double NOT NULL,
+  `Average` double NOT NULL,
+  `Highest` double NOT NULL,
+  `Lowest` double NOT NULL,
+  `Grade` varchar(243) NOT NULL,
+  `Remarks` varchar(243) NOT NULL,
+  `pos` varchar(243) NOT NULL,
+  `avg` double NOT NULL,
+  `project` varchar(11) NOT NULL,
+  `testtotal` double NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=28918 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subjectreg`
+--
+
+/*!40000 ALTER TABLE `subjectreg` DISABLE KEYS */;
+/*!40000 ALTER TABLE `subjectreg` ENABLE KEYS */;
+
+--
+-- Table structure for table `subjects`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subjects` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Subject` varchar(255) DEFAULT NULL,
+  `alias` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subjects`
+--
+
+/*!40000 ALTER TABLE `subjects` DISABLE KEYS */;
+/*!40000 ALTER TABLE `subjects` ENABLE KEYS */;
+
+--
+-- Table structure for table `subjectstats`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subjectstats` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Session` int(11) DEFAULT NULL,
+  `Class` int(11) DEFAULT NULL,
+  `Subject` int(11) DEFAULT NULL,
+  `Parameter` varchar(255) DEFAULT NULL,
+  `Number` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`) USING BTREE,
+  KEY `FK_subjectstats_session` (`Session`),
+  KEY `FK_subjectstats_class` (`Class`),
+  KEY `FK_subjectstats_subjects` (`Subject`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subjectstats`
+--
+
+/*!40000 ALTER TABLE `subjectstats` DISABLE KEYS */;
+/*!40000 ALTER TABLE `subjectstats` ENABLE KEYS */;
+
+--
+-- Table structure for table `subjectteacher`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subjectteacher` (
+  `teacher` varchar(25) DEFAULT NULL,
+  `subject` int(11) DEFAULT NULL,
+  `class` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subjectteacher`
+--
+
+/*!40000 ALTER TABLE `subjectteacher` DISABLE KEYS */;
+/*!40000 ALTER TABLE `subjectteacher` ENABLE KEYS */;
+
+--
+-- Table structure for table `submittedassignments`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `submittedassignments` (
+  `id` int(11) DEFAULT NULL,
+  `student` varchar(25) DEFAULT NULL,
+  `session` varchar(25) DEFAULT NULL,
+  `class` int(11) DEFAULT NULL,
+  `subject` int(11) DEFAULT NULL,
+  `assignment` int(11) DEFAULT NULL,
+  `answer` text,
+  `date` datetime DEFAULT NULL,
+  `remarks` text NOT NULL,
+  `score` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `submittedassignments`
+--
+
+/*!40000 ALTER TABLE `submittedassignments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `submittedassignments` ENABLE KEYS */;
+
+--
+-- Table structure for table `tcgroups`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tcgroups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tcgroups`
+--
+
+/*!40000 ALTER TABLE `tcgroups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tcgroups` ENABLE KEYS */;
+
+--
+-- Table structure for table `tclass`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tclass` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Class` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`ID`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tclass`
+--
+
+/*!40000 ALTER TABLE `tclass` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tclass` ENABLE KEYS */;
+
+--
+-- Table structure for table `tday`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tday` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Day` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`ID`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tday`
+--
+
+/*!40000 ALTER TABLE `tday` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tday` ENABLE KEYS */;
+
+--
+-- Table structure for table `teacher`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `teacher` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Teacher` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`Id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `teacher`
+--
+
+/*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
+/*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
+
+--
+-- Table structure for table `teacherperiods`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `teacherperiods` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Teacher` int(11) DEFAULT NULL,
+  `Class` int(11) DEFAULT NULL,
+  `Periods` int(11) DEFAULT NULL,
+  `Subject` int(11) DEFAULT NULL,
+  `Doubles` int(11) DEFAULT '0',
+  `tname` varchar(15) NOT NULL,
+  `Group` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`) USING BTREE,
+  KEY `FK_teacherperiods_tclass_1` (`Class`),
+  KEY `FK_teacherperiods_teacher` (`Teacher`),
+  KEY `FK_teacherperiods_tsubject` (`Subject`),
+  CONSTRAINT `FK_teacherperiods_tclass_1` FOREIGN KEY (`Class`) REFERENCES `tclass` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_teacherperiods_teacher` FOREIGN KEY (`Teacher`) REFERENCES `teacher` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_teacherperiods_tsubject` FOREIGN KEY (`Subject`) REFERENCES `tsubject` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `teacherperiods_ibfk_1` FOREIGN KEY (`Class`) REFERENCES `tclass` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `teacherperiods_ibfk_2` FOREIGN KEY (`Teacher`) REFERENCES `teacher` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `teacherperiods_ibfk_3` FOREIGN KEY (`Subject`) REFERENCES `tsubject` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `teacherperiods`
+--
+
+/*!40000 ALTER TABLE `teacherperiods` DISABLE KEYS */;
+/*!40000 ALTER TABLE `teacherperiods` ENABLE KEYS */;
+
+--
+-- Table structure for table `termtraits`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `termtraits` (
+  `session` int(11) NOT NULL,
+  `student` varchar(100) NOT NULL,
+  `trait` int(11) DEFAULT NULL,
+  `value` varchar(1) NOT NULL DEFAULT '-',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `termtraits`
+--
+
+/*!40000 ALTER TABLE `termtraits` DISABLE KEYS */;
+/*!40000 ALTER TABLE `termtraits` ENABLE KEYS */;
+
+--
+-- Table structure for table `texemptions`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `texemptions` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `day` varchar(15) NOT NULL,
+  `teacher` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_texemptions_tday` (`day`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `texemptions`
+--
+
+/*!40000 ALTER TABLE `texemptions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `texemptions` ENABLE KEYS */;
+
+--
+-- Table structure for table `timetable`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `timetable` (
+  `Day` varchar(18) DEFAULT NULL,
+  `Period` int(11) DEFAULT NULL,
+  `Subject` int(11) DEFAULT NULL,
+  `Class` int(11) DEFAULT NULL,
+  `Teacher` varchar(20) DEFAULT NULL,
+  `Doubles` int(11) DEFAULT NULL,
+  `tname` int(11) NOT NULL,
+  `grouped` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `timetable`
+--
+
+/*!40000 ALTER TABLE `timetable` DISABLE KEYS */;
+/*!40000 ALTER TABLE `timetable` ENABLE KEYS */;
+
+--
+-- Table structure for table `tperiods`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tperiods` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Day` varchar(10) DEFAULT NULL,
+  `Period` int(11) DEFAULT NULL,
+  `Timestart` time DEFAULT NULL,
+  `timeend` time DEFAULT NULL,
+  `activity` varchar(10) DEFAULT NULL,
+  `timetable` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`) USING BTREE,
+  KEY `FK_Table1_tday` (`Day`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tperiods`
+--
+
+/*!40000 ALTER TABLE `tperiods` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tperiods` ENABLE KEYS */;
+
+--
+-- Table structure for table `traits`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `traits` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `trait` varchar(40) DEFAULT NULL,
+  `used` tinyint(4) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `traits`
+--
+
+/*!40000 ALTER TABLE `traits` DISABLE KEYS */;
+/*!40000 ALTER TABLE `traits` ENABLE KEYS */;
+
+--
+-- Table structure for table `transactions`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transactions` (
+  `ref` varchar(20) NOT NULL DEFAULT '',
+  `type` varchar(50) DEFAULT NULL,
+  `dr` varchar(30) NOT NULL,
+  `cr` varchar(30) NOT NULL,
+  `account` varchar(255) DEFAULT NULL,
+  `details` varchar(255) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `trtype` varchar(10) DEFAULT NULL,
+  `student` varchar(50) NOT NULL DEFAULT 'Nil',
+  `session` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transactions`
+--
+
+/*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
+
+--
+-- Table structure for table `transportfees`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transportfees` (
+  `route` varchar(100) DEFAULT NULL,
+  `amount` int(25) NOT NULL,
+  `driver` varchar(25) DEFAULT NULL,
+  `busno` varchar(10) DEFAULT NULL,
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `min` int(11) NOT NULL DEFAULT '100',
+  PRIMARY KEY (`Id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transportfees`
+--
+
+/*!40000 ALTER TABLE `transportfees` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transportfees` ENABLE KEYS */;
+
+--
+-- Table structure for table `tsgroups`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tsgroups` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_tsgroups_tclass_2` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tsgroups`
+--
+
+/*!40000 ALTER TABLE `tsgroups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tsgroups` ENABLE KEYS */;
+
+--
+-- Table structure for table `tsubject`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tsubject` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Subject` int(11) NOT NULL,
+  PRIMARY KEY (`ID`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tsubject`
+--
+
+/*!40000 ALTER TABLE `tsubject` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tsubject` ENABLE KEYS */;
+
+--
+-- Table structure for table `ttname`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ttname` (
+  `name` varchar(100) DEFAULT NULL,
+  `school` int(11) DEFAULT NULL,
+  `default` tinyint(4) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ttname`
+--
+
+/*!40000 ALTER TABLE `ttname` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ttname` ENABLE KEYS */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-03-07 10:03:00
