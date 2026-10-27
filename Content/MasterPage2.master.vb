@@ -116,7 +116,7 @@ Partial Class MasterPage
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         
-        Using con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)            con.open()
+        Dim con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)            con.open()
             Dim ds As New DataTable
             ds.Columns.Add("categoryid")
             ds.Columns.Add("categoryName")

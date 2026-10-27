@@ -38,7 +38,7 @@ Partial Class Admin_newterm
         Dim resumption As Date = DropDownList6.Text & "/" & DropDownList7.Text & "/" & DropDownList8.Text
 
 
-        Using con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)            con.open()
+        Dim con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)            con.open()
             Dim cmdInsert As New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Session where session = ? and term = ?", con)
             cmdInsert.Parameters.Add(New MySql.Data.MySqlClient.MySqlParameter("session", DropDownList1.Text))
             cmdInsert.Parameters.Add(New MySql.Data.MySqlClient.MySqlParameter("term", DropDownList2.Text))
@@ -138,7 +138,7 @@ Partial Class Admin_newterm
                     Next
                 End If
 
-                con.close()end using
+                con.close()
         End If
     End Sub
 End Class

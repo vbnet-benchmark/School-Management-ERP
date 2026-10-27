@@ -13,7 +13,7 @@ Partial Class Admin_adminlogin
 
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Using con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)            con.open()
+        Dim con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)            con.open()
 
 
             cmd = New MySql.Data.MySqlClient.MySqlCommand("select * from admin where username='" & txtID.Text & "' AND password='" & txtpassword.Value & "'", con)
@@ -38,7 +38,7 @@ Partial Class Admin_adminlogin
                 Session("Term") = reader2(2).ToString
                 reader2.Close()
 
-                con.close()end using
+                con.close()
         FormsAuthentication.RedirectFromLoginPage(txtID.Text, False)
         Response.Redirect("~/admin/adminwelcome.aspx")
             Else
@@ -47,6 +47,6 @@ Partial Class Admin_adminlogin
             End If
         dr.Close()
         cmd.Dispose()
-        con.close()end using
+        con.close()
     End Sub
 End Class

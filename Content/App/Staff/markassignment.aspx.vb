@@ -99,7 +99,7 @@ Partial Class Admin_adminpage
     Protected Sub btnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click
         Try
             Dim message As String = FreeTextBox1.Text
-            Using con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)                con.open()
+            Dim con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)                con.open()
 
                 Dim cmdCheck20 As New MySql.Data.MySqlClient.MySqlCommand("Update submittedassignments set remarks = ?, score = ? where Id = '" & Request.QueryString.ToString & "'", con)
                 cmdCheck20.Parameters.Add(New MySql.Data.MySqlClient.MySqlParameter("title", txtRem.Text))

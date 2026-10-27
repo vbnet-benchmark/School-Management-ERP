@@ -56,7 +56,7 @@ Partial Class Admin_adminpage
     Protected Sub btnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click
         Try
             Dim message As String = FreeTextBox1.Text
-            Using con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)                con.open()
+            Dim con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)                con.open()
                 Dim x As New Random
                 Dim recno As Integer
                 Dim ref As New MySql.Data.MySqlClient.MySqlCommand("Select id from submittedassignments", con)

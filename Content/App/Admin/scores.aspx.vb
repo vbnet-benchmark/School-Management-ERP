@@ -64,7 +64,7 @@ Partial Class Student_scores
 
     Protected Sub LinkButton1_Click(sender As Object, e As EventArgs) Handles LinkButton1.Click
         Dim sArray() As String = Split(cboYr.Text, "  ")
-        Using con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)            con.open()
+        Dim con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)            con.open()
             Dim cmdCheck3 As New MySql.Data.MySqlClient.MySqlCommand("SELECT * From class where class = ?", con)
             cmdCheck3.Parameters.Add(New MySql.Data.MySqlClient.MySqlParameter("class", lblClass.Text))
             Dim reader3 As MySql.Data.MySqlClient.MySqlDataReader = cmdCheck3.ExecuteReader
@@ -79,11 +79,11 @@ Partial Class Student_scores
             reader.Read()
             If reader.Item(6) = "Unpublished" Then
                 lblError.Text = "Results not yet available for this term"
-                con.close()end using
+                con.close()
             Else
         Session("rsSession") = reader.Item(0)
 
-        con.close()end using
+        con.close()
         Response.Redirect("~/Admin/result.aspx?" & Request.QueryString.ToString)
             End If
     End Sub

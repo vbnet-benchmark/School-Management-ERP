@@ -23,7 +23,7 @@ Partial Class Default2
                         load_time_table()
                         Exit Sub
                     Else
-                        Using con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)                            con.open()
+                        Dim con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)                            con.open()
                             Dim groupedsubjects As New ArrayList
                             Dim teachers As New ArrayList
                             Dim cmdInsert12 As New MySql.Data.MySqlClient.MySqlCommand("SELECT timetable.subject, timetable.teacher FROM timetable inner join class on timetable.class = class.id Where timetable.Day = ? And class.id = ? and timetable.period = ? and timetable.tname = ?", con)
@@ -46,7 +46,7 @@ Partial Class Default2
                                 If reader88.Read Then
                                     lblError.Text = "Unable to swap. " & reader88(1).ToString & " is exempted from " & Request.QueryString("day")
                                     reader88.Close()
-                                    con.close()end using
+                                    con.close()
                         cboDay.Text = Request.QueryString("day")
                         load_time_table()
                         Exit Sub
@@ -63,7 +63,7 @@ Partial Class Default2
                     If reader137.Read Then
                         lblError.Text = "Unable to swap. There is a clash for " & reader137(0).ToString
                         reader137.Close()
-                        con.close()end using
+                        con.close()
                         cboDay.Text = Request.QueryString("day")
                         load_time_table()
                         Exit Sub
@@ -87,7 +87,7 @@ Partial Class Default2
                     If offcount > 1 Then
                         reader312.Close()
                         lblError.Text = subject & " is already having a double period on " & Request.QueryString("day")
-                        con.close()end using
+                        con.close()
                         cboDay.Text = Request.QueryString("day")
                         load_time_table()
                         Exit Sub
@@ -110,7 +110,7 @@ Partial Class Default2
                         If Request.QueryString("period") <> offperiod + 1 Or periodbeforebreaks.Contains(Request.QueryString("period")) Then
                             lblError.Text = subject & " is already offerred on " & Request.QueryString("day") & " and is not a double period."
 
-                            con.close()end using
+                            con.close()
                             cboDay.Text = Request.QueryString("day")
                             load_time_table()
                             Exit Sub
@@ -144,7 +144,7 @@ Partial Class Default2
                         If reader88.Read Then
                             lblError.Text = "Unable to swap. " & reader88(1).ToString & " is exempted from " & Session("swapday")
                             reader88.Close()
-                            con.close()end using
+                            con.close()
                             cboDay.Text = Request.QueryString("day")
                             load_time_table()
                             Exit Sub
@@ -160,7 +160,7 @@ Partial Class Default2
                         If reader137.Read Then
                             lblError.Text = "Unable to swap. There is a clash for " & reader137(0).ToString
                             reader137.Close()
-                            con.close()end using
+                            con.close()
                             cboDay.Text = Request.QueryString("day")
                             load_time_table()
                             Exit Sub
@@ -184,7 +184,7 @@ Partial Class Default2
                         If offcount2 > 1 Then
                             reader312.Close()
                             lblError.Text = subject2 & " is already having a double period on " & Session("swapday")
-                            con.close()end using
+                            con.close()
                             cboDay.Text = Request.QueryString("day")
                             load_time_table()
                             Exit Sub
@@ -206,7 +206,7 @@ Partial Class Default2
                             reader.Close()
                             If Session("swapperiod") <> offperiod2 + 1 Or periodbeforebreaks.Contains(Session("swapperiod")) Then
                                 lblError.Text = subject2 & " is already offerred on " & Session("swapday") & " and is not a double period."
-                                con.close()end using
+                                con.close()
                                 cboDay.Text = Request.QueryString("day")
                                 load_time_table()
                                 Exit Sub
@@ -255,7 +255,7 @@ Partial Class Default2
                     Session("swapday") = Nothing
                     Session("swapperiod") = Nothing
                     Session("swapclass") = Nothing
-                    con.close()end using
+                    con.close()
                     cboDay.Text = Request.QueryString("day")
                     load_time_table()
                     Exit Sub
@@ -263,11 +263,13 @@ Partial Class Default2
             End If
             cboDay.Text = Request.QueryString("day")
             load_time_table()
+            Dim period As Integer
+            Dim cla As String
             Using con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)                con.open()
                 Dim cmdLoad10 As New MySql.Data.MySqlClient.MySqlCommand("SELECT tperiods.activity  from tperiods where timetable = '" & Request.QueryString("timetable") & "' and day = '" & Request.QueryString("day") & "'order by tperiods.timestart", con)
                 Dim student10 As MySql.Data.MySqlClient.MySqlDataReader = cmdLoad10.ExecuteReader
                 Dim j As Integer = 1
-                Dim period As Integer = Request.QueryString("period")
+                period = Request.QueryString("period")
                 Do While student10.Read
                     If student10(0).ToString <> "Tutorial" And j <= period Then
                         period = period + 1
@@ -278,7 +280,7 @@ Partial Class Default2
 
                 Dim cmdInsert84 As New MySql.Data.MySqlClient.MySqlCommand("SELECT class from class where id = '" & Request.QueryString("class") & "'", con)
                 Dim reader84 As MySql.Data.MySqlClient.MySqlDataReader = cmdInsert84.ExecuteReader
-                Dim cla As String
+
                 reader84.Read()
                 cla = reader84(0).ToString
                 reader84.Close()

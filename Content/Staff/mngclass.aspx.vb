@@ -708,14 +708,14 @@ Partial Class Staff_mngclass
     End Sub
 
     Protected Sub Button2_Click1(sender As Object, e As EventArgs) Handles Button2.Click
-        Using con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)            con.open()
+        Dim con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)            con.open()
             Dim cmdLoad1 As New MySql.Data.MySqlClient.MySqlCommand("SELECT * from StudentsProfile where admno = ?", con)
             cmdLoad1.Parameters.Add(New MySql.Data.MySqlClient.MySqlParameter("studentname", TextBox1.Text))
             Dim student As MySql.Data.MySqlClient.MySqlDataReader = cmdLoad1.ExecuteReader
             If Not student.Read() Then
                 lblError.Text = "Admission number invalid"
                 student.Close()
-                con.close()end using
+                con.close()
         Else
         student.Close()
         Dim cmdSelect2 As New MySql.Data.MySqlClient.MySqlCommand("Delete FROM StudentSummary WHERE student = ? And Session = ?", con)
@@ -728,7 +728,7 @@ Partial Class Staff_mngclass
         cmd.ExecuteNonQuery()
         Average_Age()
         lblSuccess.Text = "Student successfully deleted"
-        con.close()end using
+        con.close()
         Load_students()
         End If
 

@@ -26,7 +26,7 @@ Partial Class Admin_allstudents
         alertPLC.Controls.Add(alert)
     End Sub
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
- if then
+ ' if then (stray incomplete statement in original source)
             Try
                 Using con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)                    con.open()
                     Dim cmdLoad1 As New MySql.Data.MySqlClient.MySqlCommand("SELECT system, id from gradingsystem", con)

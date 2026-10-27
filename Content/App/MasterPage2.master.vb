@@ -116,7 +116,7 @@ Partial Class MasterPage
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         
-        Using con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)            con.open()
+        Dim con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)            con.open()
             Dim ds As New DataTable
             ds.Columns.Add("categoryid")
             ds.Columns.Add("categoryName")
@@ -256,6 +256,8 @@ Partial Class MasterPage
             Accordion1.DataBind()
     End Sub
     Public Function Get_subordinates(ByVal dept As String) As ArrayList
+        Using con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)
+            con.Open()
         Dim cmdLoad1 As New MySql.Data.MySqlClient.MySqlCommand("SELECT dept from depts where superior = '" & dept & "'", con)
         Dim student1 As MySql.Data.MySqlClient.MySqlDataReader = cmdLoad1.ExecuteReader
         Dim subo As New ArrayList
@@ -264,6 +266,7 @@ Partial Class MasterPage
         Loop
         student1.Close()
         Return subo
+        End Using
     End Function
 End Class
 

@@ -59,7 +59,7 @@ Partial Class Admin_issuepin
         Else
             Dim pin As New Random
             Dim x As Integer = pin.Next(100000000, 999999999)
-            Using con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)                con.open()
+            Dim con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)                con.open()
                 Dim cmdInsert As New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Session Order by ID Desc", con)
                 Dim reader2 As MySql.Data.MySqlClient.MySqlDataReader = cmdInsert.ExecuteReader
                 reader2.Read()
@@ -75,12 +75,12 @@ Partial Class Admin_issuepin
                         cmdInsert2.ExecuteNonQuery()
                     Catch s As Exception
                         lblError.Text = "Unable to issue pin. " & s.Message
-                        con.close()end using
+                        con.close()
             Exit Sub
                     End Try
             Session("IsReprint") = True
         End If
-        con.close()end using
+        con.close()
         Session("StudentId") = txtID.Text
 
         Response.Redirect("~/admin/pinslip.aspx")

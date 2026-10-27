@@ -47,7 +47,7 @@ Partial Class Admin_adminpage
         Dim l As New Literal
 
         l = Me.Master.FindControl("summerLit")
-        l.Text = msgobj.Get_Js_Admin(Hidden1, counter, txtSMS)
+        l.Text = msgobj.Get_Js_Admin(Hidden1, counter, txtSMS, ChkPortal)
         ScriptManager.RegisterClientScriptBlock(Me.Page, Me.GetType, "this4", l.Text, False)
 
     End Sub

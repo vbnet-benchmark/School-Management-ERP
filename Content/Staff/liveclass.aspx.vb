@@ -323,7 +323,7 @@ Partial Class Admin_allstudents
     Protected Sub btnMsg_Click(sender As Object, e As EventArgs) Handles btnMsg.Click
         Dim s As ServiceAccountCredential
         Dim f As New FileStream("client_secret.json", FileMode.Open, FileAccess.Read)
-        s = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(f).Secrets, cal
+        ' (truncated statement in original source) s = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(f).Secrets, cal
     End Sub
 
     Protected Sub lnkSubmitted_Click(sender As Object, e As EventArgs) Handles lnkSubmitted.Click

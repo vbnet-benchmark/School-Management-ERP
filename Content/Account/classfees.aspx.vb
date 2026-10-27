@@ -50,7 +50,7 @@ Partial Class Account_salary
                 e.Cancel = True
             End If
 
-            Using con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)                con.open()
+            Dim con As New MySql.Data.MySqlClient.MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("PortalDBConnectionString").ConnectionString)                con.open()
                 Dim comfirm11 As New MySql.Data.MySqlClient.MySqlCommand("Select * from class where class = ?", con)
                 comfirm11.Parameters.Add(New MySql.Data.MySqlClient.MySqlParameter("class", DropDownList2.Text))
                 Dim readref As MySql.Data.MySqlClient.MySqlDataReader = comfirm11.ExecuteReader
